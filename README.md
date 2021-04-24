@@ -7,10 +7,10 @@ Ramen Website page made using Laravel and Vue
 
 # Local Set-up
 ``
-    $ admin-lcl
+    $ sysdev-lcl
 ``
 
 # Deploy code
 ``
-    $ admin-prd-deploy
+    $ sysdev-prd-deploy
 ``
