@@ -1,8 +1,8 @@
 FROM sysdev_lcl:latest AS builder
 
-COPY package.json package-lock.json webpack.mix.js ./
-COPY resources/js resources/js
-COPY resources/sass resources/sass
+# COPY package.json package-lock.json webpack.mix.js ./
+# COPY resources/js resources/js
+# COPY resources/sass resources/sass
 
 RUN npm install
 

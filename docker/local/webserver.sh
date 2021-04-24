@@ -5,7 +5,7 @@
 # mkdir -p storage/framework/views
 # mkdir -p storage/framework/cache
 # mkdir -p storage/app/json
-# composer install
+composer install
 # composer dump-autoload
 
 # php artisan view:clear
@@ -19,9 +19,9 @@
 
 # # git rev-parse --short HEAD > REVISION
 
-# npm install
+npm install
 # npm run watch 2>&1 &
 
 # php artisan serve --host 0.0.0.0 --port 80
 
-php -S 0.0.0.0:80
+php -S 0.0.0.0:80 -t public

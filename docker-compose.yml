@@ -22,6 +22,8 @@ services:
                         - APP_DEBUG=true
                         - PORT=12001
                 volumes: 
+                        - sysdev_node_modules:/app/sysdev_node_modules
+                        - sysdev_vendor:/app/vendor
                         - .:/app/
                 depends_on: 
                         - db
@@ -65,3 +67,5 @@ services:
                         
 volumes:
         sysdev_dbdata:
+        sysdev_vendor:
+        sysdev_node_modules:

@@ -1,0 +1,14 @@
+{
+    "name": "eugenesinamban/sysdev",
+    "description": "project repo for sysdev class",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Eugene Sinamban",
+            "email": "eugene.sinamban@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.0"
+    }
+}
