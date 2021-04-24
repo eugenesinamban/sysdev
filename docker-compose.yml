@@ -1,0 +1,67 @@
+version: "3.7"
+services:       
+    # Php+Nginx Service
+        php-fpm:
+                build:
+                        context: ./
+                        dockerfile: docker/php-fpm/Dockerfile
+                image: sysdev_php-fpm
+        
+        # local
+        lcl:
+                build:
+                        context: ./
+                        dockerfile: docker/local/Dockerfile
+                image: sysdev_lcl:latest
+                container_name: sysdev_lcl
+                tty: true
+                ports: 
+                        - 12001:80
+                environment: 
+                        - APP_ENV=local
+                        - APP_DEBUG=true
+                        - PORT=12001
+                volumes: 
+                        - .:/app/
+                depends_on: 
+                        - db
+                        - redis
+
+        # prd
+        prd:    
+                build:
+                        context: ./
+                        dockerfile: docker/production/Dockerfile
+                image: sysdev_prd:latest
+                container_name: sysdev_prd
+                tty: true
+                ports:
+                  - 12002:80
+                environment:
+                        - APP_ENV=production
+                        - APP_DEBUG=false
+                depends_on:
+                        - db
+                        - redis
+        
+        # mysql Service
+        db:
+                image: mysql:5.7.32
+                container_name: sysdev_db
+                ports: 
+                        - 3306:3306
+                volumes:
+                        - sysdev_dbdata:/var/lib/mysql
+                        - ./mysql/my.cnf:/etc/mysql/my.cnf
+                environment:
+                        - MYSQL_DATABASE=sysdev
+                        - MYSQL_ROOT_PASSWORD=sysdev
+        # Redis Service
+        redis:
+                image: redis:alpine
+                container_name: sysdev_redis
+                ports: 
+                        - "6379"
+                        
+volumes:
+        sysdev_dbdata:
