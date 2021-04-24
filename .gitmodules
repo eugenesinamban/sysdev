@@ -1,3 +1,0 @@
-[submodule "sysdev-deploy"]
-	path = sysdev-deploy
-	url = git@github.com:eugenesinamban/sysdev-deploy.git@github.com:SinambanE/administrator-deploy.git
